@@ -16,11 +16,15 @@ fn main() {
     io::stdout().write_all(&output.stdout).unwrap();
     io::stderr().write_all(&output.stderr).unwrap();
     let exec = r#"
-"if [ -z \"$(pidof xfce4-session)\" ]; then export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0; xfce4-session; pkill '(gpg|ssh)-agent'; fi;"
+"if [ -z "$(pidof xfce4-session)" ]; then 
+    export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0; 
+    xfce4-session; 
+    pkill '(gpg|ssh)-agent'; 
+fi;"
         "#;
     let output = {
         Command::new("ubuntu2004.exe")
-            .args(&["run", "~/x11.sh"])
+            .args(&["run", exec])
             .output()
             .expect("failed to execute prcess ubuntu2004.exe")
     };
