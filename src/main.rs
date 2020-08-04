@@ -20,7 +20,7 @@ fn main() {
         "#;
     let output = {
         Command::new("ubuntu2004.exe")
-            .args(&["~/.x11.sh"])
+            .args(&["run", "~/.x11.sh"])
             .output()
             .expect("failed to execute prcess ubuntu2004.exe")
     };
