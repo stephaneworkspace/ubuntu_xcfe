@@ -7,8 +7,8 @@ fn main() {
         println!("Incompatible target os, need Microsoft Windows 10");
         process::exit(0);    }
     let output = {
-        Command::new("start")
-            .args(&["/B", "x410.exe", "/desktop"])
+        Command::new("x410.exe")
+            .args(&["/desktop"])
             .output()
             .expect("failed to execute prcess x410.exe")
     };
