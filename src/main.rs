@@ -17,7 +17,7 @@ fn main() {
     io::stderr().write_all(&output.stderr).unwrap();
     let output = {
         Command::new("ubuntu2004.exe")
-            .args(&["run", "~/.runx11.sh"])
+            .args(&["run", "~/runx11.sh"])
             .output()
             .expect("failed to execute prcess ubuntu2004.exe")
     };
